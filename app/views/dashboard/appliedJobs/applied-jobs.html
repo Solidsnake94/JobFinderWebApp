@@ -1,0 +1,32 @@
+<div class="container">
+
+    <h1 class="created-jobs-title"> Applied Jobs</h2>
+
+    <div class="row">
+         <div class="job-list col-sm-10 col-sm-offset-1">
+            <ul class="list-group">
+              <li class="list-group-item clearfix" ng-repeat="job in vm.appliedJobs" ng-click="">
+                    <span class="col-sm-8">
+                        <h4 > {{ job.title }} </h4>  
+                    </span>
+                    <span ng-if='job.status == "Pending"' class="col-sm-4 right-text-element pending-status"> 
+                        PENDING
+                     </span>
+                     <span ng-if='job.status == "Approved"' class="col-sm-4 right-text-element approved-status"> 
+                        APPROVED
+                     </span>
+                </li>
+
+                <!--<li class="list-group-item clearfix">
+                    <span class="col-sm-8">
+                        <h4 > Title Job </h4>  
+                    </span>
+                    <span class="col-sm-4 right-text-element approved-status"> 
+                        APPROVED 
+                     </span>
+                </li>-->
+               
+            </ul>
+        </div>
+    </div>
+</div>

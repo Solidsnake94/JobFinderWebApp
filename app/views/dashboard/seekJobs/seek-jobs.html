@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-1">
+            <div id="imaginary_container">
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 ">
+            Some text
+        </div>
+    </div>
+
+    <div class="row">
+        bnbsd
+        <div class="job-list col-sm-10 col-sm-offset-1">
+            <ul class="list-group">
+
+                {{vm.allJobs[1].title}}
+                 
+                <li class="list-group-item clearfix" ng-repeat='job in vm.allJobs' ng-click="vm.getJobDetails(job.id)">
+                    <span class="col-sm-10">
+                        <h4 > {{job.title}} </h4>
+                        by <strong> {{job.createdBy}} </strong> 
+                    </span>
+                    <span class="col-sm-2"> 
+                        <!-- Date: <em> {{job.dateStart | date: 'yyyy-MM-dd'}}</em> -->
+                        Category: <em> {{job.categoryID }} </em>
+                     </span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- <div class="col-sm-10 col-sm-offset-1">
+            <ul uib-pagination total-items="vm.allJobsLength" 
+                ng-model="vm.allJobsCurrentPage" 
+                max-size="vm.maxSizeOfJobsOnPage" 
+                class="pagination-sm" 
+                boundary-link-numbers="true"
+                rotate="false"></ul>
+        </div> -->
+    </div>
+
+
+
+
+</div>

@@ -1,0 +1,66 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+ #map { 
+    height: 400px;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 1px solid silver;
+}
+
+.navbar-jobfinder {
+    background-color: black !important;
+}
+
+.background-color-jobfinder{
+    background-color: black !important;
+}
+
+
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.margin-sidebar{
+    margin-top: 50px !important;
+}
+
+.margin-dashboard-ui-view{
+    margin-top: 55px !important;
+}
+
+.job-list{
+    margin-top: 20px;
+}
+
+.created-jobs-title{
+    text-align: center;
+}
+
+.center-text-element{
+    text-align: center;
+    vertical-align: middle !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.right-text-element{
+    text-align: right;
+    vertical-align: middle !important;
+}
+
+.pending-status{
+    color: orange;
+}
+
+.approved-status{
+    color: green;
+}

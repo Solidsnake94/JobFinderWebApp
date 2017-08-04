@@ -1,0 +1,66 @@
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkxwh7-05bcPadXxT5H__pkYjlENBuMdA&libraries=places&callback=initialize" async
+    defer></script>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <form >
+                <div class="form-group">
+                    <label for="inputJobTitle">Job Title</label>
+                    <input type="text" class="form-control" id="inputJobTitle" placeholder="Job Title">
+                </div>
+                <div class="form-group">
+                    <label for="inputJobDescription">Description</label>
+                    <textarea class="form-control" rows="5" id="inputJobDescription" placeholder="Job Description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputJobStartDate">Job Start Date</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions"
+                            ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                       <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputJobEndDate">Job End Date</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions"
+                            ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputJobHours">Estimated time of Work (In hours)</label>
+                    <input type="number" class="form-control" id="inputJobHours" placeholder="Estimated hours">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputJobSalary">Salary (Total amount in KR)</label>
+                    <input type="number" class="form-control" id="inputJobSalary" placeholder="Job Salary">
+                </div>
+                <div class="form-group">
+                    <label for="inputLocation"> Location </label>
+                </div>
+            
+                <button type="submit" class="btn btn-primary"> Create </button>
+            </form>
+            <form name="searchForm" novalidate ng-submit="search()">
+                    <div class="input-group">
+                        <input name="place" type="text" class="form-control" ng-model="searchPlace" required autofocus />
+                        <span class="input-group-btn">
+                         <button class="btn btn-primary" ng-disabled="searchForm.$invalid">Search</button>
+                        </span>
+                    </div>
+                </form>
+
+                <div id="map"></div>
+        </div>
+    </div>
+</div>

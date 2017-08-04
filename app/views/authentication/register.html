@@ -1,0 +1,33 @@
+<form ng-submit="register.onSubmit()">
+    <header>
+        <h1>Register</h1>
+
+        <div class="form-group">
+            <label for="name">Full name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="credentials.name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="credentials.email">
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="username" class="form-control" id="username" placeholder="Enter username" ng-model="credentials.username">
+        </div>
+        <div class="form-group">
+            <label for="date">Date of Birth</label>
+            <input type="date" class="form-control" id="date"  ng-model="credentials.dateofbirth">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password" ng-model="credentials.password">
+        </div>
+
+        <div class="form-group">
+            <button type="button" class="btn btn-danger" ui-sref="home">Cancel</button>
+            <button type="submit" class="btn btn-success">Register!</button>
+        </div>
+    </header>
+    <footer></footer>
+</form>

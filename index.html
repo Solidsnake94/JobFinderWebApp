@@ -1,0 +1,99 @@
+<html lang="en" ng-app="jobFinderApp">
+
+<head>
+    <!--<base href="/">-->
+    <base href="/">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <title>Job Finder - Find One for YOU</title>
+
+
+    <!-- Latest compiled and minified BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <link href="assets/css/navbar-fixed-side.css" rel="stylesheet" />
+    <!--<link rel="stylesheet"  href="assets/css/orange-sidebar.css">-->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkxwh7-05bcPadXxT5H__pkYjlENBuMdA&libraries=places" async
+        defer></script>
+
+    <!-- ANGULAR -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <!-- APP MODULE & ROUTER  -->
+    <script src="app/app.js"></script>
+    <script src="app/router.js"></script>
+
+
+
+
+
+    <!--&callback=initMap-->
+
+    <!--<script src="node_modules/angular-simple-logger/dist/angular-simple-logger.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>-->
+    <!--<script src="node_modules/angular-google-maps/dist/angular-google-maps.min.js"></script>-->
+
+    <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkxwh7-05bcPadXxT5H__pkYjlENBuMdA&libraries=places"></script>-->
+
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-jobfinder">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" ui-sref="dashboard">Job Finder</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="profile">Profile</a></li>
+                    <li><a href="register">Register</a></li>
+                    <li><a href="login">Login</a></li>
+
+                </ul>
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </nav>
+
+    <ui-view></ui-view>
+
+    <!--UI-BOOTSTRAP-->
+    <script src="assets/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
+    <!-- Latest compiled and minified BOOTSTRAP JavaScript -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <!-- CONTROLLERS -->
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/controllers/dashboardController.js"></script>
+    <script src="app/controllers/appliedJobsController.js"></script>
+    <script src="app/controllers/seekJobsController.js"></script>
+    <script src="app/controllers/seekJobDetailsController.js"></script>
+    <script src="app/controllers/createdJobsController.js"></script>
+    <script src="app/controllers/createNewJobController.js"></script>
+    <script src="app/controllers/login.js"></script>
+    <script src="app/controllers/register.js"></script>
+
+    <!--SERVICES -->
+    <!--<script src="app/services/homeService.js"> </script>-->
+    <script src="app/services/seekJobsService.js"></script>
+    <script src="app/services/appliedJobsService.js"></script>
+    <script src="app/services/createdJobsService.js"></script>
+    <script src="app/services/homeService.js"></script>
+    <script src="app/services/authenticationService.js"></script>
+    <script src="app/services/googleMapsService.js"></script>
+
+</body>
+
+</html>

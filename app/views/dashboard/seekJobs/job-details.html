@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1> {{vm.job.title }}</h1>
+                </div>
+                <div class="col-sm-6">
+                   <button type="button" class="btn btn-success" ng-click="vm.applyForJob(vm.job.id)"> APPLY</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3> Company: {{ vm.job.company }}</h3>
+                </div>
+                <div class="col-sm-6">
+                    <h3> Category: {{ vm.job.category}}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3> Start date: {{ vm.job.startDate | date: 'yyyy-MM-dd'}}</h3>
+                </div>
+                <div class="col-sm-6">
+                    <h3> End date: {{ vm.job.endDate | date: 'yyyy-MM-dd'}}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3> Estimates hours : {{ vm.job.time }}</h3>
+                </div>
+                <div class="col-sm-6">
+                    <h3> Salary : {{ vm.job.price }} kr </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3> Description: </h3>
+                    {{ vm.job.description}}
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-sm-12">
+                    <h3> Location: </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
