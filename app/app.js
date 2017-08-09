@@ -1,4 +1,4 @@
 (function() {
     'use strict';
-    angular.module('jobFinderApp', ['ui.router', 'ui.bootstrap']);
+    angular.module('jobFinderApp', ['ui.router', 'ui.bootstrap','LocalStorageModule']);
 }());

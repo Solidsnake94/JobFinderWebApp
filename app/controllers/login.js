@@ -11,19 +11,19 @@
         var vm = this;
 
         $scope.credentials = {
-            email: "",
+            username: "",
             password: ""
         };
 
         vm.onSubmit = function () {
             authenticationService
                 .login($scope.credentials)
-                .error(function (err) {
-                    vm.error = err.message;
-                })
                 .then(function () {
-                    $state.go('dashboard', {}, { reload: true });
+                    $state.go("dashboard", {}, { reload: true });
+                }, function (err) {
+                    vm.error = err.message;
                 });
+               
         };
     }
 

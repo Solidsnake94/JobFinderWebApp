@@ -1,34 +1,42 @@
-<form name="myForm" ng-submit="login.onSubmit()">
-    <header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="jumbotron">
+                <form name="myForm" ng-submit="vm.onSubmit()">
+                    <header>
 
-        <h1>Log in</h1>
+                        <h1>Log in</h1>
 
-        <div class="form-group" ng-if="login.error">
-            <div class="alert alert-danger">
-                <p>
-                    Your credentials are not valid
-                </p>
+                        <div class="form-group" ng-if="login.error">
+                            <div class="alert alert-danger">
+                                <p>
+                                    Your credentials are not valid
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="username" class="form-control" name="username" placeholder="Enter username" ng-model="credentials.username">
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Password" ng-model="credentials.password">
+                        </div>
+
+
+                        <div class="form-group">
+                            <button type="button" class="btn btn-danger" ui-sref="home">Cancel</button>
+                            <button type="submit" class="btn btn-success">Sign in</button>
+                        </div>
+
+                    </header>
+                    <footer></footer>
+                </form>
             </div>
         </div>
-
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="credentials.email">
-
-        </div>
-
-
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password" ng-model="credentials.password">
-        </div>
-
-
-        <div class="form-group">
-            <button type="button" class="btn btn-danger" ui-sref="home">Cancel</button>
-            <button type="submit" class="btn btn-success">Sign in</button>
-        </div>
-
-    </header>
-    <footer></footer>
-</form>
+    </div>
+</div>

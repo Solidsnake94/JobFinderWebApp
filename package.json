@@ -9,7 +9,9 @@
     "angular": "^1.6.4",
     "angular-ui-router": "^1.0.3",
     "express": "^4.15.3",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "body-parser":"*",
+    "angular-local-storage": "*"
   },
   "devDependencies": {
     "typings": "^2.1.1"

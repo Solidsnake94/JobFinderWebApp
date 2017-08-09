@@ -1,6 +1,6 @@
-(function() {
+(function () {
 
-     angular
+    angular
         .module('jobFinderApp')
         .controller('Register', register);
 
@@ -11,22 +11,25 @@
 
         $scope.credentials = {
             name: "",
+            surname:"",
             email: "",
             username: "",
             dateofbirth: "",
-            password: ""
+            password: "",
+            confirmpassword:""
         };
 
-        vm.onSubmit = function() {
+        vm.onSubmit = function () {
             console.log("Submitting registration");
+            console.log($scope.credentials);
             authenticationService
                 .register($scope.credentials)
-                .error(function(err) {
+                .then(function () {
+                    $state.go("home", {}, { reload: true });
+                }, function (err) {
                     vm.error = err.message;
                 })
-                .then(function() {
-                    $state.go("home", {}, { reload: true });
-                });
+
         };
 
     }
