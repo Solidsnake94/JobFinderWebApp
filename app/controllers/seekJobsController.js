@@ -13,21 +13,18 @@
         vm.selectedSeekJob = {};
         vm.allJobs = [];
 
-        seekJobsService.getAllJobs().$promise.then(
+        seekJobsService.getAllJobs().then(
             function (data) {
-
-            vm.allJobs = data;
-            vm.allJobsLength = vm.allJobs.length;
-            vm.allJobsCurrentPage = 1;
-            vm.maxSizeOfJobsOnPage = 5;
-
-            console.log("vm.allJobs");
-            console.log(vm.allJobs);
-        },
-        function(error){
-            console.log("error getting all jobs");
-        }
-    );
+                vm.allJobs = data;
+                vm.allJobsLength = vm.allJobs.length;
+                vm.allJobsCurrentPage = 1;
+                vm.maxSizeOfJobsOnPage = 5;
+                console.log(vm.allJobs);
+            },
+            function (error) {
+                console.log("error getting all jobs");
+            }
+        );
 
 
         // ==============================================

@@ -65,7 +65,8 @@
         authServiceFactory.logout = logout;
         authServiceFactory.fillAuthData = fillAuthData;
         authServiceFactory.authentication = _authentication;
-
+        authServiceFactory.apiBaseUrl = apiBaseUrl;
+        
         return authServiceFactory;
     }
 

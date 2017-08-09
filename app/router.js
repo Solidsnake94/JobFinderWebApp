@@ -6,7 +6,7 @@
             function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
                 $locationProvider.html5Mode(true);
-               
+
                 //REDIRECT TO MAIN PAGE IF NO ROUTE
                 $urlRouterProvider.when('', '/');
 
@@ -25,14 +25,14 @@
                     controller: 'profileController',
                     controllerAs: 'vm'
                 });
-                 // ==== AUTHENTICATION STATES =============================
+                // ==== AUTHENTICATION STATES =============================
                 $stateProvider.state('login', {
                     url: '/login',
                     templateUrl: 'app/views/authentication/login.html',
                     controller: 'Login',
                     controllerAs: 'vm'
                 });
-                
+
                 $stateProvider.state('register', {
                     url: '/register',
                     templateUrl: 'app/views/authentication/register.html',
@@ -135,6 +135,9 @@
                 // });
                 //==========================================================
 
-            }]);
-        
+            }])
+    // .config(function ($httpProvider) {
+    //     $httpProvider.interceptors.push('authInterceptorService');
+    // });
+
 }());

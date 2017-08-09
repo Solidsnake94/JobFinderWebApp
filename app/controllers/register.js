@@ -11,12 +11,12 @@
 
         $scope.credentials = {
             name: "",
-            surname:"",
+            surname: "",
             email: "",
             username: "",
             dateofbirth: "",
             password: "",
-            confirmpassword:""
+            confirmpassword: ""
         };
 
         vm.onSubmit = function () {
