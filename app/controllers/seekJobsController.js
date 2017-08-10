@@ -12,6 +12,7 @@
 
         vm.selectedSeekJob = {};
         vm.allJobs = [];
+        vm.job = {};
 
         seekJobsService.getAllJobs().then(
             function (data) {
@@ -19,7 +20,6 @@
                 vm.allJobsLength = vm.allJobs.length;
                 vm.allJobsCurrentPage = 1;
                 vm.maxSizeOfJobsOnPage = 5;
-                console.log(vm.allJobs);
             },
             function (error) {
                 console.log("error getting all jobs");
@@ -31,21 +31,18 @@
 
 
         // ====== CLICK FUNCTIONS =============================
-        vm.getJobDetails = function (id) {
-            // CORRECT VERSION 
-            // seekJobsService.getJobDetails(id).then(function(data){
-            //     $scope.selectedSeekJob = data;
-            // });
-
-            // TEST VERSION
-            vm.selectedSeekJob = seekJobsService.getJobDetails(id);
-            seekJobsService.setSelectedSeekJob(vm.selectedSeekJob);
-            if (vm.selectedSeekJob) {
-                $state.go('dashboard.job-details');
-            }
+        vm.goToDetails = function (id) {
+            seekJobsService.getJobDetails(id).then(function (response) {
+                vm.job = response;
+                $state.go("dashboard.job-details", { job: vm.job }, { reload: true });
+            }, function (error) {
+                console.log("error getting jobs details");
+            });
         }
-        //=======================================================
+        console.log(vm.job);
 
+
+        //=======================================================
 
     }
 })();

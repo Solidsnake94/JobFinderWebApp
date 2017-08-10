@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('jobFinderApp')
@@ -15,12 +15,20 @@
         var createdJobs = createdJobsService.getCreatedJobs(1);
         sortCreatedJobs(createdJobs);
 
-        function sortCreatedJobs(jobs){
-            jobs.forEach(function(job) {
-                if(job.applicantsPending >= 0){
-                    vm.pendingJobs.push(job);
-                }
-                if(job.applicantsApproved > 0){
+        createdJobsService.getPendingJobs(2,5,"DateStart",false).then(
+            function (response) {
+                console.log(response);
+                vm.pendingJobs = response.data;
+            },
+            function(error){
+                console.log("error getting pending jobs")
+            }
+        );
+        
+        function sortCreatedJobs(jobs) {
+            jobs.forEach(function (job) {
+
+                if (job.applicantsApproved > 0) {
                     vm.approvedJobs.push(job);
                 }
             });

@@ -1,4 +1,4 @@
-<div class="container" ng-init="vm.allJobs()">
+<div class="container" >
     <div class="row">
         <div class="col-sm-6 col-sm-offset-1">
             <div id="imaginary_container">
@@ -14,10 +14,10 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" >
         <div class="job-list col-sm-10 col-sm-offset-1" >
             <ul class="list-group">
-                <li class="list-group-item clearfix" ng-repeat='job in vm.allJobs' ng-click="vm.getJobDetails(job.id)">
+                <li class="list-group-item clearfix" ng-repeat='job in vm.allJobs' ng-click="vm.goToDetails(job.id)">
                     <span class="col-sm-10">
                         <h4 > {{job.title}} </h4>
                         by <strong> {{job.createdBy}} </strong> 

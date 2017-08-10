@@ -64,34 +64,35 @@
                     function (response) {
                         console.log('Error: ' + response);
                     });
-                    
+
             });
         }
 
         function getJobDetails(id) {
-
-            $http.get('/api/job/' + id)
-                .then(function (data) {
-                    return data;
-                },
-                function (data) {
-                    console.log('Error: ' + data);
-                });
+            return new Promise(function (resolve, reject) {
+                $http.get(authenticationService.apiBaseUrl + '/api/jobs/created?jobId=' + id)
+                    .then(function (response) {
+                        resolve(response.data);
+                    },
+                    function (data) {
+                        console.log('Error: ' + data);
+                    });
+            });
         }
 
         // ======= seekJobDetailsController methods ==========
         function applyForJob(id) {
 
-        }
+                }
 
         function getSelectedSeekJob() {
-            return selectedSeekJob;
-        }
+                    return selectedSeekJob;
+                }
 
         // ====== seekJobController methods ===========
         function setSelectedSeekJob(selectedJob) {
-            selectedSeekJob = selectedJob;
-        }
+                    selectedSeekJob = selectedJob;
+                }
 
         // function getAllJobs() {
         //     return jobs;
@@ -105,13 +106,13 @@
         ////////////////
 
         var service = {
-            getAllJobs: getAllJobs,
-            getJobDetails: getJobDetails,
-            setSelectedSeekJob: setSelectedSeekJob,
-            getSelectedSeekJob: getSelectedSeekJob,
-            applyForJob: applyForJob
-        };
+                getAllJobs: getAllJobs,
+                getJobDetails: getJobDetails,
+                setSelectedSeekJob: setSelectedSeekJob,
+                getSelectedSeekJob: getSelectedSeekJob,
+                applyForJob: applyForJob
+            };
 
-        return service;
-    }
-})();
+            return service;
+        }
+    })();

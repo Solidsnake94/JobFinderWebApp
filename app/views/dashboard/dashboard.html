@@ -4,18 +4,21 @@
             <nav class="navbar navbar-inverse navbar-fixed-side margin-sidebar">
                 <ul class="nav navbar-nav">
                     <li class="">
-                        <a ui-sref=".created-jobs">Created Jobs</a>
+                        <a ui-sref=".welcome"><span class="glyphicon glyphicon-home"></span> Home</a>
+                    </li>
+                    <li class="">
+                        <a ui-sref=".created-jobs"><span class="glyphicon glyphicon-plus"></span> Created Jobs</a>
                     </li>
 
                     <li>
-                        <a ui-sref=".seek-jobs">Seek Jobs</a>
+                        <a ui-sref=".seek-jobs"><span class="glyphicon glyphicon-globe"></span> Seek Jobs</a>
                     </li>
 
                     <li>
-                        <a ui-sref=".applied-jobs">Applied Jobs</a>
+                        <a ui-sref=".applied-jobs"><span class="glyphicon glyphicon-briefcase"></span> Applied Jobs</a>
                     </li>
                     <li>
-                        <a ng-click="vm.logout()">Logout</a>
+                        <a ng-click="vm.logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                     </li>
                 </ul>
                 <!-- normal collapsible navbar markup -->
@@ -23,9 +26,6 @@
         </div>
         <div class="col-sm-9 col-lg-10">
             <div class="jumbotron">
-                <div class="row">
-                    <header>Welcome {{user}}</header>
-                </div>
                 <div class="margin-dashboard-ui-view" ui-view></div>
             </div>
         </div>

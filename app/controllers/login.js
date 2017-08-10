@@ -19,7 +19,7 @@
             authenticationService
                 .login($scope.credentials)
                 .then(function () {
-                    $state.go("dashboard", {}, { reload: true });
+                    $state.go("dashboard.welcome", {}, { reload: true });
                 }, function (err) {
                     vm.error = err.message;
                 });

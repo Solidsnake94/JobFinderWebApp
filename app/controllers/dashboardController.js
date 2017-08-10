@@ -16,7 +16,7 @@
 
         vm.logout = function () {
             authenticationService.logout();
-            $state.go("home", {}, { reload: true });
+            $state.go("no-access", {}, { reload: true });
 
         }
         activate();

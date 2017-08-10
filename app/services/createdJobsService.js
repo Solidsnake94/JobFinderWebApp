@@ -42,6 +42,20 @@
             }
         ]
 
+        var getPendingJobs = function (offset, limt, filter, orderBy) {
+            return new Promise(function (resolve, reject) {
+                
+                $http.get(authenticationService.apiBaseUrl + '/api/jobs/pending/page?offset='+offset+'&limit='+limt+'&filter='+filter+'&orderByAscen='+orderBy)
+                    .then(function (response) {
+                        resolve(response.data);
+                    },
+                    function (response) {
+                        console.log('Error: ' + response);
+                    });
+
+            });
+        }
+
         function getCreatedJobs(userId) {
             return jobs
         }
@@ -54,6 +68,7 @@
         };
 
         var service = {
+            getPendingJobs: getPendingJobs,
             getCreatedJobs: getCreatedJobs,
             createjob: createJob
         };

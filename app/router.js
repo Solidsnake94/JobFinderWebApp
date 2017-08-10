@@ -46,6 +46,12 @@
                     controllerAs: 'vm'
                 });
 
+                // ==== No access TEMPLATE ===========================
+                $stateProvider.state('no-access', {
+                    url: '/no-access',
+                    templateUrl: 'app/views/no-access.html'                   
+                });
+
                 // ==== DASHBOARD TEMPLATE ===========================
                 $stateProvider.state('dashboard', {
                     url: '/dashboard',
@@ -53,8 +59,13 @@
                     controller: 'dashboardController',
                     controllerAs: 'vm'
                 });
-                // ====================================================
-
+                // =====Welcome Template============================
+                $stateProvider.state('dashboard.welcome', {
+                    url: '/welcome',
+                    templateUrl: 'app/views/dashboard/welcome/welcome.html',
+                    controller: 'dashboardController',
+                    controllerAs: 'vm'
+                });
 
                 // ====== CREATED JOBS ROUTES ==========================
                 $stateProvider.state('dashboard.created-jobs', {
@@ -104,7 +115,10 @@
                     url: '/job-details',
                     templateUrl: 'app/views/dashboard/seekJobs/job-details.html',
                     controller: 'seekJobDetailsController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    params: {
+                        job: null
+                    }
                 });
 
                 //  $stateProvider.state('dashboard.employer-details',{
@@ -128,11 +142,6 @@
 
 
                 // ===== SHARED STATES ===================================
-                $stateProvider.state('no-access', {
-                    url: '/no-access',
-                    templateUrl: 'app/views/no-access.html'
-                    // controller: 'appliedJobsController'
-                });
 
                 //   $stateProvider.state('no-access',{
                 //     url: '/error',

@@ -25,7 +25,7 @@
             authenticationService
                 .register($scope.credentials)
                 .then(function () {
-                    $state.go("home", {}, { reload: true });
+                    $state.go("login", {}, { reload: true });
                 }, function (err) {
                     vm.error = err.message;
                 })
