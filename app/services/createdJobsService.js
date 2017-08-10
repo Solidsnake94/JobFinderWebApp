@@ -5,9 +5,10 @@
         .module('jobFinderApp')
         .factory('createdJobsService', createdJobsService);
 
-    createdJobsService.inject = ['$http'];
-    function createdJobsService($http) {
+    createdJobsService.inject = ['$http', 'authenticationService'];
+    function createdJobsService($http, authenticationService) {
 
+        var service = {};
         var jobs = [
             {
                 jobId: 1,
@@ -45,8 +46,16 @@
             return jobs
         }
 
+        var createJob = function (job) {
+            return $http.post(authenticationService.apiBaseUrl + "/api/jobs/created", job)
+                .then(function (response) {
+                    return response.data;
+                })
+        };
+
         var service = {
-            getCreatedJobs: getCreatedJobs
+            getCreatedJobs: getCreatedJobs,
+            createjob: createJob
         };
 
         return service;

@@ -31,7 +31,8 @@
             var deferred = $q.defer();
 
             return $http.post(apiBaseUrl + "/token", data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
-                localStorageService.set('jobFinder-token', { token: response.access_token, username: user.username });
+                localStorageService.set('jobFinder-token', response.data.access_token);
+                localStorageService.set('jobFinder-username', user.username);
 
                 _authentication.isAuth = true;
                 _authentication.username = user.username;
@@ -45,6 +46,7 @@
 
         var logout = function () {
             localStorageService.remove('jobFinder-token');
+            localStorageService.remove('jobFinder-username');
 
             _authentication.isAuth = false;
             _authentication.username = "";
@@ -66,7 +68,7 @@
         authServiceFactory.fillAuthData = fillAuthData;
         authServiceFactory.authentication = _authentication;
         authServiceFactory.apiBaseUrl = apiBaseUrl;
-        
+
         return authServiceFactory;
     }
 

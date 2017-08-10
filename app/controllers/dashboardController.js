@@ -1,18 +1,24 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('jobFinderApp')
         .controller('dashboardController', dashboardController);
 
-    dashboardController.inject = ['$scope','authenticationService'];
+    dashboardController.inject = ['$scope','$state', 'authenticationService'];
 
-    function dashboardController($scope,authenticationService) {
+    function dashboardController($scope,$state, authenticationService) {
         var vm = this;
-        
-        vm.user = authenticationService.authentication.username;
+
+        $scope.user = localStorage.getItem('ls.jobFinder-username');
+        console.log($scope.user);
         // VARIABLES =======================
 
+        vm.logout = function () {
+            authenticationService.logout();
+            $state.go("home", {}, { reload: true });
+
+        }
         activate();
 
         // PUBLIC FUNCTIONS ================

@@ -4,63 +4,53 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <form >
+            <form ng-submit="vm.createJob()">
                 <div class="form-group">
-                    <label for="inputJobTitle">Job Title</label>
-                    <input type="text" class="form-control" name="inputJobTitle" id="inputJobTitle" placeholder="Job Title">
+                    <label for="title">Job Title</label>
+                    <input type="text" class="form-control" name="title" id="title" ng-model="job.title" placeholder="Job Title" ng-required="true">
                 </div>
                 <div class="form-group">
-                    <label for="inputJobDescription">Description</label>
-                    <textarea class="form-control" rows="5" name="inputJobDescription" placeholder="Job Description"></textarea>
+                    <label for="description">Description</label>
+                    <textarea class="form-control" rows="5" name="description" id="description" ng-model="job.description" placeholder="Job Description"></textarea>
                 </div>
-
                 <div class="form-group">
-                    <label for="inputJobStartDate">Job Start Date</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions"
-                            ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                        <span class="input-group-btn">
-                       <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                    </div>
+                    <label for="category">Category</label>
+                    <select class="form-control">
+                        <option>Select a category</option>
+                        <option>1</option>
+                    </select>
                 </div>
-
                 <div class="form-group">
-                    <label for="inputJobEndDate">Job End Date</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions"
-                            ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </div>
+                    <label for="datestart">Job Start Date</label>
+                    <input type="date" class="form-control" name="datestart" ng-model="job.datestart">
+                </div>
+                <div class="form-group">
+                    <label for="dateend">Job End Date</label>
+                    <input type="date" class="form-control" name="dateend" ng-model="job.dateend">
+                </div>
+                <div class="form-group">
+                    <label for="hours">Estimated time of Work (In hours)</label>
+                    <input type="number" class="form-control" name="hours" id="hours" ng-model="job.hours" placeholder="Estimated hours">
                 </div>
 
                 <div class="form-group">
-                    <label for="inputJobHours">Estimated time of Work (In hours)</label>
-                    <input type="number" class="form-control" id="inputJobHours" placeholder="Estimated hours">
+                    <label for="price">Salary (Total amount in KR)</label>
+                    <input type="number" class="form-control" name="price" ng-model="job.price" id="price" placeholder="Job Salary">
                 </div>
 
-                <div class="form-group">
-                    <label for="inputJobSalary">Salary (Total amount in KR)</label>
-                    <input type="number" class="form-control" id="inputJobSalary" placeholder="Job Salary">
-                </div>
-                <div class="form-group">
-                    <label for="inputLocation"> Location </label>
-                </div>
-            
-                <button type="submit" class="btn btn-primary"> Create </button>
+                <a class="btn btn-danger" ui-sref="dashboard.created-jobs"><span class="glyphicon glyphicon-remove"></span> Cancel</a>
+                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Create </button>
             </form>
-            <form name="searchForm" novalidate ng-submit="search()">
-                    <div class="input-group">
-                        <input name="place" type="text" class="form-control" ng-model="searchPlace" required autofocus />
-                        <span class="input-group-btn">
-                         <button class="btn btn-primary" ng-disabled="searchForm.$invalid">Search</button>
-                        </span>
-                    </div>
-                </form>
+            <form name="searchForm" novalidate ng-submit="vm.search()">
+                <div class="input-group">
+                    <input name="place" type="text" class="form-control" ng-model="searchPlace" required autofocus />
+                    <span class="input-group-btn">
+                         <button class="btn btn-primary" ng-disabled="searchForm.$invalid"><span class="glyphicon glyphicon-search"></span>                    Search</button>
+                    </span>
+                </div>
+            </form>
 
-                <div id="map"></div>
+            <div id="map"></div>
         </div>
     </div>
 </div>

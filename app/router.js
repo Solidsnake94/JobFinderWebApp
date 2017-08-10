@@ -33,6 +33,12 @@
                     controllerAs: 'vm'
                 });
 
+                $stateProvider.state('logout', {
+                    url: '/logout',
+                    controller: 'dashboardController',
+                    controllerAs: 'vm'
+                });
+
                 $stateProvider.state('register', {
                     url: '/register',
                     templateUrl: 'app/views/authentication/register.html',

@@ -5,15 +5,28 @@
         .module('jobFinderApp')
         .controller('createNewJobController', createNewJobController);
 
-    createNewJobController.inject = ['$scope', "$window", "googleMapsService"];
-    function createNewJobController($scope, $window, googleMapsService) {
+    createNewJobController.inject = ['$scope', "$window","state", "createdJobsService", "googleMapsService"];
+    function createNewJobController($scope, $window, $state, createdJobsService, googleMapsService) {
         var vm = this;
 
-        // ====== Google Maps Logic ================
-        
         $scope.place = {};
 
-        $scope.search = function () {
+        $scope.job = {
+            title: "",
+            description: "",
+            datestart: "",
+            dateend: "",
+            hours: "",
+            price: "",
+            id:"1",
+            categoryID: "2",
+            createdBy:"2",
+            status:"Pending"
+        };
+
+        // ====== Google Maps Logic ================
+
+        vm.search = function () {
 
             console.log('Searching location!');
             $scope.apiError = false;
@@ -22,22 +35,31 @@
                 function (res) { // success
                     googleMapsService.addMarker(res);
                     $scope.place.name = res.name;
-                    $scope.place.lat = res.geometry.location.lat();
-                    $scope.place.lng = res.geometry.location.lng();
+                    $scope.job.latitude = res.geometry.location.lat();
+                    $scope.job.longitude = res.geometry.location.lng();
 
-                    console.log('Place:' + $scope.place.name + ' Lat: ' + $scope.place.lat + ' Lng: ' + $scope.place.lng );
+                    console.log('Place:' + $scope.place.name + ' Lat: ' + $scope.job.latitude + ' Lng: ' + $scope.job.longitude);
                 },
                 function (status) { // error
-                    $scope.apiError = true;
+                    $scope.apiError = true; 
                     $scope.apiStatus = status;
-                    
+
                     console.log('GoogleMaps error: ' + $scope.apiStatus);
 
-                }
-                );
-
-                
+                });
         }
+        vm.createJob = function () {
+            console.log("Submitting registration");
+            console.log($scope.job);
+            createdJobsService            
+                .createjob($scope.job)
+                .then(function () {
+                    $state.go("home", {}, { reload: true });
+                }, function (err) {
+                    vm.error = err.message;
+                })
+        }
+
 
         $scope.send = function () {
             alert($scope.place.name + ' : ' + $scope.place.lat + ', ' + $scope.place.lng);
