@@ -44,8 +44,8 @@
 
         var getPendingJobs = function (offset, limt, filter, orderBy) {
             return new Promise(function (resolve, reject) {
-                
-                $http.get(authenticationService.apiBaseUrl + '/api/jobs/pending/page?offset='+offset+'&limit='+limt+'&filter='+filter+'&orderByAscen='+orderBy)
+
+                $http.get(authenticationService.apiBaseUrl + '/api/jobs/pending/page?offset=' + offset + '&limit=' + limt + '&filter=' + filter + '&orderByAscen=' + orderBy)
                     .then(function (response) {
                         resolve(response.data);
                     },
@@ -59,6 +59,9 @@
         function getCreatedJobs(userId) {
             return jobs
         }
+        var getApprovedJobs = function () {
+            return 1;
+        }
 
         var createJob = function (job) {
             return $http.post(authenticationService.apiBaseUrl + "/api/jobs/created", job)
@@ -70,7 +73,8 @@
         var service = {
             getPendingJobs: getPendingJobs,
             getCreatedJobs: getCreatedJobs,
-            createjob: createJob
+            createjob: createJob,
+            getApprovedJobs: getApprovedJobs
         };
 
         return service;

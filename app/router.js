@@ -19,12 +19,7 @@
                 });
                 //====================================================
 
-                $stateProvider.state('profile', {
-                    url: '/profile',
-                    templateUrl: 'app/views/userProfile.html',
-                    controller: 'profileController',
-                    controllerAs: 'vm'
-                });
+                
                 // ==== AUTHENTICATION STATES =============================
                 $stateProvider.state('login', {
                     url: '/login',
@@ -49,7 +44,7 @@
                 // ==== No access TEMPLATE ===========================
                 $stateProvider.state('no-access', {
                     url: '/no-access',
-                    templateUrl: 'app/views/no-access.html'                   
+                    templateUrl: 'app/views/no-access.html'
                 });
 
                 // ==== DASHBOARD TEMPLATE ===========================
@@ -64,6 +59,12 @@
                     url: '/welcome',
                     templateUrl: 'app/views/dashboard/welcome/welcome.html',
                     controller: 'dashboardController',
+                    controllerAs: 'vm'
+                });
+                $stateProvider.state('dashboard.profile', {
+                    url: '/profile',
+                    templateUrl: 'app/views/userProfile.html',
+                    controller: 'profileController',
                     controllerAs: 'vm'
                 });
 
@@ -150,9 +151,34 @@
                 // });
                 //==========================================================
 
-            }])
+            }
+        ])
+
     // .config(function ($httpProvider) {
     //     $httpProvider.interceptors.push('authInterceptorService');
     // });
+
+    // .run(['$rootScope', '$state', 'localStorageService',
+    //         function ($rootScope, $state, localStorageService) {
+    //             $rootScope.$on('$transitions.on', function (event, toState) {
+    //                 var isAuth = localStorage.getItem('ls.isAuth');
+    //                 if (isAuth == null) {
+    //                     isAuth = false;
+    //                 }
+    //                 console.log(localStorage.getItem('ls.isAuth'));
+    //                 if ((toState !== 'http://localhost:8080/login' || toState !== 'http://localhost:8080/register' || toState !== 'http://localhost:8080/no-access') && isAuth === false) {
+    //                     $state.go('no-access');
+    //                 }
+    //                 if (toState == 'http://localhost:8080/login' && isAuth == "true") {
+    //                     $state.go('dashboard');
+    //                 }
+    //                 if (toState == 'http://localhost:8080/register' && isAuth == "true") {
+    //                     $state.go('dashboard.welcome');
+    //                 }
+    //             });
+    //         }
+    //     ])
+
+
 
 }());

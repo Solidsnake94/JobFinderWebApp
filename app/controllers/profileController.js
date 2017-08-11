@@ -1,14 +1,34 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('jobFinderApp')
-        .controller('profileController', profileController);
+        .controller('profileController', ['$scope', '$state', 'profileService', function ($scope, $state, profileService) {
 
-    profileController.inject = ['$scope'];
+            var vm = this;
 
-    function profileController($scope) {
-        var vm = this;
-        
-    }
+            vm.userId = localStorage.getItem('ls.userId');
+
+            vm.user = {
+                jobs: "",
+                id: "",
+                userId: "",
+                username: "",
+                email: "",
+                name: "",
+                surname: "",
+                dateOfBirth: ""
+            };
+
+
+            profileService
+                .getUserDetailsById(vm.userId)
+                .then(function (data) {
+                    vm.user = data;
+                }, function (err) {
+                    vm.error = err.message;
+                })
+
+        }
+        ])
 })();

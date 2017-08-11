@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="assets/pictures/favicon-1.png"/>
+    <link rel="shortcut icon" type="image/png" href="assets/pictures/favicon-1.png" />
     <title>Job Finder - Find One for YOU</title>
 
 
@@ -22,6 +22,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkxwh7-05bcPadXxT5H__pkYjlENBuMdA&libraries=places" async
         defer></script>
 
+    <script src="assets/js/jquery.min.js"></script>
     <!-- ANGULAR -->
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -30,7 +31,7 @@
     <!-- APP MODULE & ROUTER  -->
     <script src="app/app.js"></script>
     <script src="app/router.js"></script>
-    
+
 
 
 
@@ -57,9 +58,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                    <li><a href="register">Register</a></li>
-                    <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a ui-sref="dashboard.profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                    <li><a ui-sref="register">Register</a></li>
+                    <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 
                 </ul>
             </div>
@@ -73,7 +74,7 @@
     <script src="assets/js/ui-bootstrap-tpls-2.5.0.min.js"></script>
 
     <!-- Latest compiled and minified BOOTSTRAP JavaScript -->
-    <script src="assets/js/jquery.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
@@ -82,6 +83,7 @@
     <script src="app/controllers/dashboardController.js"></script>
     <script src="app/controllers/appliedJobsController.js"></script>
     <script src="app/controllers/seekJobsController.js"></script>
+    <script src="app/controllers/profileController.js"></script>
     <script src="app/controllers/seekJobDetailsController.js"></script>
     <script src="app/controllers/createdJobsController.js"></script>
     <script src="app/controllers/createNewJobController.js"></script>
@@ -91,8 +93,10 @@
     <!--SERVICES -->
     <!--<script src="app/services/homeService.js"> </script>-->
     <script src="app/services/seekJobsService.js"></script>
+    <script src="app/services/transitionService.js"></script>
     <script src="app/services/appliedJobsService.js"></script>
     <script src="app/services/createdJobsService.js"></script>
+    <script src="app/services/profileService.js"></script>
     <script src="app/services/homeService.js"></script>
     <script src="app/services/authenticationService.js"></script>
     <script src="app/services/googleMapsService.js"></script>

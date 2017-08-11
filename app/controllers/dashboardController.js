@@ -11,7 +11,7 @@
         var vm = this;
 
         $scope.user = localStorage.getItem('ls.jobFinder-username');
-        console.log($scope.user);
+        
         // VARIABLES =======================
 
         vm.logout = function () {
