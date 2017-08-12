@@ -1,0 +1,25 @@
+<div class="container" ng-init="vm.getPendingJobs()">
+    <h1 class="created-jobs-title"> Pending Jobs</h1>
+
+    <button ui-sref="dashboard.create-job" class="btn btn-success col-sm-offset-1"><span class="glyphicon glyphicon-plus"></span> Add New Job</button>
+
+    <div class="row">
+        <div class="job-list col-sm-10 col-sm-offset-1">
+            <ul class="list-group">
+                <li class="list-group-item clearfix" ng-repeat="pendingJob in vm.pendingJobs">
+                    <span class="col-sm-4">
+                        <h4 > {{ pendingJob.title }} </h4>  
+                    </span>
+
+                    <span class="col-sm-4 center-text-element"> 
+                        Applicants: {{ pendingJob.applicantsPending.length}}
+                     </span>
+                    
+                    <button type="button" class="btn btn-danger pull-right" ng-click="vm.deletePendingJobById(pendingJob.id)"> DELETE </button>
+                    <button type="button" class="btn btn-info pull-right" ng-click="vm.goToDetailsPendingjobs(pendingJob.id)"> GO TO </button>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

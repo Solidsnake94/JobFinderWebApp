@@ -19,7 +19,7 @@
                 });
                 //====================================================
 
-                
+
                 // ==== AUTHENTICATION STATES =============================
                 $stateProvider.state('login', {
                     url: '/login',
@@ -69,9 +69,15 @@
                 });
 
                 // ====== CREATED JOBS ROUTES ==========================
-                $stateProvider.state('dashboard.created-jobs', {
-                    url: '/created-jobs',
-                    templateUrl: 'app/views/dashboard/createJobs/created-jobs.html',
+                $stateProvider.state('dashboard.approved', {
+                    url: '/approved',
+                    templateUrl: 'app/views/dashboard/createJobs/approvedJobs.html',
+                    controller: 'createdJobsController',
+                    controllerAs: 'vm'
+                });
+                $stateProvider.state('dashboard.pending', {
+                    url: '/pending',
+                    templateUrl: 'app/views/dashboard/createJobs/pendingJobs.html',
                     controller: 'createdJobsController',
                     controllerAs: 'vm'
                 });
@@ -84,15 +90,23 @@
                 });
 
                 $stateProvider.state('dashboard.pending-job-details', {
-                    url: '/pending-job-details',
+                    url: '/details',
                     templateUrl: 'app/views/dashboard/createJobs/pending-job-details.html',
-                    // controller: 'createdJobsController'
+                    controller: 'pendingJobsdetailsController',
+                    controllerAs: 'vm',
+                    params: {
+                        job: null
+                    }
                 });
 
                 $stateProvider.state('dashboard.approved-job-details', {
-                    url: '/created-jobs',
+                    url: '/details',
                     templateUrl: 'app/views/dashboard/createJobs/approved-job-details.html',
-                    //  controller: 'createdJobsController'
+                    controller: 'approvedJobsdetailsController',
+                    controllerAs: 'vm',
+                    params: {
+                        job: null
+                    }
                 });
 
                 $stateProvider.state('dashboard.employee-details', {

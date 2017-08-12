@@ -1,0 +1,24 @@
+<div class="container" ng-init="vm.getApprovedJobs()">
+    <h1 class="created-jobs-title"> Approved Jobs</h1>
+
+    <button ui-sref="dashboard.create-job" class="btn btn-success col-sm-offset-1"><span class="glyphicon glyphicon-plus"></span> Add New Job</button>
+
+    <div class="row">
+        <div class="job-list col-sm-10 col-sm-offset-1">
+            <ul class="list-group">
+                <li class="list-group-item clearfix" ng-repeat="approvedJob in vm.approvedJobs">
+                    <span class="col-sm-4">
+                        <h4 > {{ approvedJob.title}} </h4>  
+                    </span>
+                    <span class="col-sm-4 center-text-element"> 
+                        Applicants approved: {{approvedJob.applicantsApproved}} 
+                     </span>
+                    <span class="col-sm-4 right-text-element">
+                        <button type="button" class="btn btn-info" ng-click="vm.goToDetailsApprovedjobs(approvedJob.id)"> GO TO </button>
+                     </span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

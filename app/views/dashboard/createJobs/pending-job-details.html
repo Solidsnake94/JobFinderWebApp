@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-10 col-sm-offset-2">
+            <div class="row">
+                <h1> {{vm.job.title }}</h1>
+            </div>
+            <a href ui-sref="dashboard.pending"><span class="glyphicon glyphicon-triangle-left"></span> Go Back</a>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3> Created By: {{ vm.job.createdBy }}</h3>
+                </div>
+                <div class="col-sm-6">
+                    <h3> Category: {{ vm.job.categoryID}}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3> Start date: {{ vm.job.dateStart | date: 'yyyy-MM-dd'}}</h3>
+                </div>
+                <div class="col-sm-6">
+                    <h3> End date: {{ vm.job.dateEnd | date: 'yyyy-MM-dd'}}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3> Estimates hours : {{ vm.job.hours }}</h3>
+                </div>
+                <div class="col-sm-6">
+                    <h3> Salary : {{ vm.job.price }} kr </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3> Description: </h3>
+                    {{ vm.job.description}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3> Location: </h3>
+                </div>
+            </div>
+            <div class="row">
+                <button type="button" class="btn btn-success pull-right" ng-click="vm.applyForJob(vm.job.id)"> APPLY</button>
+            </div>
+        </div>
+    </div>
+</div>

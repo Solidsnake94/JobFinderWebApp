@@ -7,15 +7,17 @@
                         <a ui-sref=".welcome"><span class="glyphicon glyphicon-home"></span> Home</a>
                     </li>
                     <li class="">
-                        <a ui-sref=".created-jobs"><span class="glyphicon glyphicon-plus"></span> Created Jobs</a>
+                        <a ui-sref=".approved"><span class="glyphicon glyphicon-ok"></span> Approved Created Jobs</a>
                     </li>
-
+                    <li class="">
+                        <a ui-sref=".pending"> <span class="glyphicon glyphicon-sort"></span> Pending Created Jobs</a>
+                    </li>
                     <li>
                         <a ui-sref=".seek-jobs"><span class="glyphicon glyphicon-globe"></span> Seek Jobs</a>
                     </li>
 
                     <li>
-                        <a ui-sref=".applied-jobs"><span class="glyphicon glyphicon-briefcase"></span> Applied Jobs</a>
+                        <a ui-sref=".applied-jobs"><span class="glyphicon glyphicon-briefcase"></span> Jobs you applied</a>
                     </li>
                     <li>
                         <a ng-click="vm.logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
