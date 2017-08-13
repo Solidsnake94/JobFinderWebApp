@@ -20,10 +20,12 @@
             price: "",
             id:"1",
             categoryID: "2",
-            createdBy:"2",
-            status:"Pending"
+            createdBy:"",
+            status:"PENDING"
         };
 
+        $scope.job.createdBy = localStorage.getItem('ls.userId');
+        
         // ====== Google Maps Logic ================
 
         vm.search = function () {
@@ -54,7 +56,7 @@
             createdJobsService            
                 .createjob($scope.job)
                 .then(function () {
-                    $state.go("home", {}, { reload: true });
+                    $state.go("dashboard.pending", {}, { reload: true });
                 }, function (err) {
                     vm.error = err.message;
                 })
