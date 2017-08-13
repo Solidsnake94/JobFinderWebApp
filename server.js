@@ -5,6 +5,7 @@ var express = require('express');
 var app = express();                               // create our app w/ express
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 
+var port = process.env.PORT || 8080;
 // configuration =================
 
 // set the static files location /public/img will be /img for users
@@ -23,5 +24,5 @@ app.get('*', function (req, res) {
 });
 
 // listen (start app with node server.js) ======================================
-app.listen(8080);
+app.listen(port);
 console.log("App listening on port 8080");
