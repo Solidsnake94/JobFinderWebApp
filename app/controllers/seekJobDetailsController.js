@@ -9,9 +9,17 @@
     function seekJobDetailsController($scope, $state, $stateParams, googleMapsService, seekJobsService) {
         var vm = this;
         var job = {};
+        var jobApplication ={};
+
         $scope.place = {};
 
         vm.job = $stateParams.job;
+
+        vm.jobApplication = {
+            jobId : vm.job.id,
+            applicantId : localStorage.getItem('ls.userId'),
+            status:'PENDING'
+        }
 
         console.log(vm.job);
 
@@ -37,15 +45,16 @@
 
                 });
         }
-        // functions 
-        vm.applyForJob = function (id) {
-            // CORRECT VERSION 
-            // seekJobsService.getJobDetails(id).then(function(data){
-            //     $scope.selectedSeekJob = data;
-            // });
 
-            seekJobsService.applyForJob(id);
-            $state.go("dashboard.applied-jobs")
+        //============Apply for Job ==============
+
+        vm.applyForJob = function () {
+            seekJobsService.applyForJob(vm.jobApplication).then(function (response) {
+                $state.go("dashboard.applied-jobs")
+            }, function (error) {
+                console.log("Something went wrong with the application");
+            });
         }
+
     }
 })();

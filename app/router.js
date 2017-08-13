@@ -25,20 +25,35 @@
                     url: '/login',
                     templateUrl: 'app/views/authentication/login.html',
                     controller: 'Login',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    onEnter: function ($state) {
+                        if (localStorage.getItem('ls.userId')) {
+                            $state.go('dashboard.welcome');
+                        }
+                    }
                 });
 
                 $stateProvider.state('logout', {
                     url: '/logout',
                     controller: 'dashboardController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
+                    }
                 });
 
                 $stateProvider.state('register', {
                     url: '/register',
                     templateUrl: 'app/views/authentication/register.html',
                     controller: 'Register',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    onEnter: function ($state) {
+                        if (localStorage.getItem('ls.userId')) {
+                            $state.go('dashboard.welcome');
+                        }
+                    }
                 });
 
                 // ==== No access TEMPLATE ===========================
@@ -52,20 +67,35 @@
                     url: '/dashboard',
                     templateUrl: 'app/views/dashboard/dashboard.html',
                     controller: 'dashboardController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
+                    }
                 });
                 // =====Welcome Template============================
                 $stateProvider.state('dashboard.welcome', {
                     url: '/welcome',
                     templateUrl: 'app/views/dashboard/welcome/welcome.html',
                     controller: 'dashboardController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
+                    }
                 });
                 $stateProvider.state('dashboard.profile', {
                     url: '/profile',
                     templateUrl: 'app/views/userProfile.html',
                     controller: 'profileController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
+                    }
                 });
 
                 // ====== CREATED JOBS ROUTES ==========================
@@ -73,20 +103,35 @@
                     url: '/approved',
                     templateUrl: 'app/views/dashboard/createJobs/approvedJobs.html',
                     controller: 'createdJobsController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
+                    }
                 });
                 $stateProvider.state('dashboard.pending', {
                     url: '/pending',
                     templateUrl: 'app/views/dashboard/createJobs/pendingJobs.html',
                     controller: 'createdJobsController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
+                    }
                 });
 
                 $stateProvider.state('dashboard.create-job', {
                     url: '/create-job',
                     templateUrl: 'app/views/dashboard/createJobs/create-job.html',
                     controller: 'createNewJobController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
+                    }
                 });
 
                 $stateProvider.state('dashboard.pending-job-details', {
@@ -95,7 +140,12 @@
                     controller: 'pendingJobsdetailsController',
                     controllerAs: 'vm',
                     params: {
-                        job: null
+                        jobApplicationDetails: null
+                    },
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
                     }
                 });
 
@@ -106,6 +156,11 @@
                     controllerAs: 'vm',
                     params: {
                         job: null
+                    },
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
                     }
                 });
 
@@ -123,7 +178,12 @@
                     url: '/seek-jobs',
                     templateUrl: 'app/views/dashboard/seekJobs/seek-jobs.html',
                     controller: 'seekJobsController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
+                    }
                 });
 
                 $stateProvider.state('dashboard.job-details', {
@@ -133,6 +193,11 @@
                     controllerAs: 'vm',
                     params: {
                         job: null
+                    },
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
                     }
                 });
 
@@ -150,7 +215,26 @@
                     url: '/applied-jobs',
                     templateUrl: 'app/views/dashboard/appliedJobs/applied-jobs.html',
                     controller: 'appliedJobsController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm',
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
+                    }
+                });
+                $stateProvider.state('dashboard.applied-jobs-details', {
+                    url: '/details',
+                    templateUrl: 'app/views/dashboard/appliedJobs/applied-jobs-details.html',
+                    controller: 'appliedJobsDetailsController',
+                    controllerAs: 'vm',
+                    params: {
+                        job: null
+                    },
+                    onEnter: function ($state) {
+                        if (!localStorage.getItem('ls.userId')) {
+                            $state.go('no-access');
+                        }
+                    }
                 });
                 // ======================================================
 

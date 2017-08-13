@@ -26,9 +26,9 @@
             });
         }
 
-        var goToDetailsPendingjobs = function (id) {
+        var goToDetailsPendingJobsApplication = function (id) {
             return new Promise(function (resolve, reject) {
-                $http.get(authenticationService.apiBaseUrl + '/api/jobs/created?jobId=' + id)
+                $http.get(authenticationService.apiBaseUrl + '/api/jobs/application/job?jobId=' + id)
                     .then(function (response) {
                         resolve(response.data);
                     },
@@ -86,7 +86,7 @@
             createjob: createJob,
             getApprovedJobs: getApprovedJobs,
             goToDetailsApprovedjobs: goToDetailsApprovedjobs,
-            goToDetailsPendingjobs: goToDetailsPendingjobs
+            goToDetailsPendingJobsApplication: goToDetailsPendingJobsApplication
         };
 
         return service;

@@ -25,10 +25,10 @@
                 }
             );
         }
-        vm.goToDetailsPendingjobs = function (id) {
-            createdJobsService.goToDetailsPendingjobs(id).then(function (response) {
-                vm.job = response;
-                $state.go("dashboard.pending-job-details", { job: vm.job }, { reload: true });
+        vm.goToDetailsPendingJobsApplication = function (id) {
+            createdJobsService.goToDetailsPendingJobsApplication(id).then(function (response) {
+                vm.jobApplicationDetails = response;
+                $state.go("dashboard.pending-job-details", { jobApplicationDetails: vm.jobApplicationDetails }, { reload: true });
             }, function (error) {
                 console.log("error getting jobs details");
             });

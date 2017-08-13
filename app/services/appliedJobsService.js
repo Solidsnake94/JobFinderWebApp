@@ -5,43 +5,38 @@
         .module('jobFinderApp')
         .factory('appliedJobsService', appliedJobsService);
 
-    appliedJobsService.inject = ['$http'];
+    appliedJobsService.inject = ['$http', "authenticationService"];
 
-    function appliedJobsService($http) {
+    function appliedJobsService($http, authenticationService) {
 
-        var jobs = [
-            {
-                id: 1,
-                title: "Jobo Robo",
-                status: "Pending"
-            },
-            {
-                id: 1,
-                title: "Jobobbla",
-                status: "Approved"
-            }, {
-                id: 1,
-                title: "Babysitting Pandas",
-                status: "Pending"
-            },
-        ]
+        function getAppliedJobs(applicantId) {
+            return new Promise(function (resolve, reject) {
 
+                $http.get(authenticationService.apiBaseUrl + '/api/jobs/application/applicant?applicantId=' + applicantId)
+                    .then(function (response) {
+                        resolve(response.data);
+                    },
+                    function (response) {
+                        console.log('Error: ' + response);
+                    });
 
-        function getAppliedJobs() {
-
-            //     $http.get('/api/appliedJobs')
-            //         .success(function (data) {
-            //             return data;
-            //         })
-            //         .error(function (data) {
-            //             console.log('Error: ' + data);
-            //         });
-
-            return jobs;
+            });
+        }
+        var goToDetailsAppliedjobs = function (id) {
+            return new Promise(function (resolve, reject) {
+                $http.get(authenticationService.apiBaseUrl + '/api/jobs/created?jobId=' + id)
+                    .then(function (response) {
+                        resolve(response.data);
+                    },
+                    function (data) {
+                        console.log('Error: ' + data);
+                    });
+            });
         }
 
         var service = {
-            getAppliedJobs: getAppliedJobs
+            getAppliedJobs: getAppliedJobs,
+            goToDetailsAppliedJobs: goToDetailsAppliedjobs
         };
 
         return service;

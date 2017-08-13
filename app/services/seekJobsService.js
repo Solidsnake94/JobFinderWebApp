@@ -53,7 +53,6 @@
         //====================================
 
 
-
         function getAllJobs() {
             return new Promise(function (resolve, reject) {
 
@@ -81,18 +80,22 @@
         }
 
         // ======= seekJobDetailsController methods ==========
-        function applyForJob(id) {
-
-                }
+        
+        function applyForJob(jobApplication) {
+             return $http.post(authenticationService.apiBaseUrl + "/api/jobs/application/create", jobApplication)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
 
         function getSelectedSeekJob() {
-                    return selectedSeekJob;
-                }
+            return selectedSeekJob;
+        }
 
         // ====== seekJobController methods ===========
         function setSelectedSeekJob(selectedJob) {
-                    selectedSeekJob = selectedJob;
-                }
+            selectedSeekJob = selectedJob;
+        }
 
         // function getAllJobs() {
         //     return jobs;
@@ -106,13 +109,13 @@
         ////////////////
 
         var service = {
-                getAllJobs: getAllJobs,
-                getJobDetails: getJobDetails,
-                setSelectedSeekJob: setSelectedSeekJob,
-                getSelectedSeekJob: getSelectedSeekJob,
-                applyForJob: applyForJob
-            };
+            getAllJobs: getAllJobs,
+            getJobDetails: getJobDetails,
+            setSelectedSeekJob: setSelectedSeekJob,
+            getSelectedSeekJob: getSelectedSeekJob,
+            applyForJob: applyForJob
+        };
 
-            return service;
-        }
-    })();
+        return service;
+    }
+})();

@@ -8,11 +8,11 @@
     pendingJobsdetailsController.inject = ['$scope', '$state', '$stateParams', "googleMapsService"];
     function pendingJobsdetailsController($scope, $state, $stateParams, googleMapsService) {
         var vm = this;
-        var job = {};
+        var jobApplicationDetails = {};
         $scope.place = {};
 
-        vm.job = $stateParams.job;
+        vm.jobApplicationDetails = $stateParams.jobApplicationDetails;
 
-        console.log(vm.job);
+        console.log(vm.jobApplicationDetails);
     }
 })();
