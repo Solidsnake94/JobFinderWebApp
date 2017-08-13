@@ -13,7 +13,7 @@
                         <span class="col-sm-4 center-text-element"> 
                         Status: {{ jobApplication.status}}
                      </span>
-                        <button type="button" class="btn btn-success pull-right" ng-click="vm.goToDetailsPendingJobsApplication(pendingJob.id)"> ACCEPT </button>                        </li>
+                        <button type="button" class="btn btn-success pull-right" ng-click="vm.acceptJobApplicant(jobApplication.applicantId,jobApplication.jobId)"> ACCEPT </button>                        </li>
                 </ul>
             </div>
         </div>

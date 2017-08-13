@@ -80,13 +80,21 @@
                 })
         };
 
+        var acceptApplicantJob = function (applicantId, jobId) {
+            return $http.post(authenticationService.apiBaseUrl + "/api/jobs/application/accept?applicantId=" + applicantId + '&jobId=' + jobId)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
         var service = {
             getPendingJobs: getPendingJobs,
             deletePendingJobById: deletePendingJobById,
             createjob: createJob,
             getApprovedJobs: getApprovedJobs,
             goToDetailsApprovedjobs: goToDetailsApprovedjobs,
-            goToDetailsPendingJobsApplication: goToDetailsPendingJobsApplication
+            goToDetailsPendingJobsApplication: goToDetailsPendingJobsApplication,
+            acceptApplicantJob: acceptApplicantJob
         };
 
         return service;
