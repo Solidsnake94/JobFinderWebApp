@@ -33,7 +33,7 @@
             return $http.post(apiBaseUrl + "/token", data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
                 localStorageService.set('jobFinder-token', response.data.access_token);
                 localStorageService.set('jobFinder-username', user.username);
-                localStorageService.set('isAuth', true);
+                localStorageService.set('isAuth', true);                
                 localStorageService.set('userId', 14);
 
                 deferred.resolve(response);

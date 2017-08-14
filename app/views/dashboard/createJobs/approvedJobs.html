@@ -10,10 +10,10 @@
                     <span class="col-sm-4">
                         <h4 > {{ approvedJob.title}} </h4>  
                     </span>
-                    <span class="col-sm-4 center-text-element"> 
-                        Applicants approved: {{approvedJob.applicantsApproved}} 
-                     </span>
-                    <span class="col-sm-4 right-text-element">
+                     <span class="col-sm-4 col-sm-offset-1">
+                        <h4 >Status : <span class="approved-status">{{ approvedJob.status}}</span> </h4>  
+                    </span>
+                    <span class="col-sm-3 right-text-element  pull-right">
                         <button type="button" class="btn btn-info" ng-click="vm.goToDetailsApprovedjobs(approvedJob.id)"> GO TO </button>
                      </span>
                 </li>
