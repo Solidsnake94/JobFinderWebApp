@@ -13,17 +13,7 @@
 
         //===============Pending Jobs ====================
         var getPendingJobs = function (userId, offset, limt, filter, orderBy) {
-            return new Promise(function (resolve, reject) {
-
-                $http.get(authenticationService.apiBaseUrl + '/api/jobs/pending/page?userId=' + userId + '&offset=' + offset + '&limit=' + limt + '&filter=' + filter + '&orderByAscen=' + orderBy)
-                    .then(function (response) {
-                        resolve(response.data);
-                    },
-                    function (response) {
-                        console.log('Error: ' + response);
-                    });
-
-            });
+            return $http.get(authenticationService.apiBaseUrl + '/api/jobs/pending/page?userId=' + userId + '&offset=' + offset + '&limit=' + limt + '&filter=' + filter + '&orderByAscen=' + orderBy)
         }
 
         var goToDetailsPendingJobsApplication = function (id) {
@@ -47,17 +37,10 @@
 
         //===============Approved Jobs ====================
         var getApprovedJobs = function (userId) {
-            return new Promise(function (resolve, reject) {
 
-                $http.get(authenticationService.apiBaseUrl + '/api/jobs/approved?userId=' + userId)
-                    .then(function (response) {
-                        resolve(response.data);
-                    },
-                    function (response) {
-                        console.log('Error: ' + response);
-                    });
 
-            });
+               return $http.get(authenticationService.apiBaseUrl + '/api/jobs/approved?userId=' + userId);
+                    
         }
 
         var goToDetailsApprovedjobs = function (id) {

@@ -24,7 +24,7 @@
             profileService
                 .getUserDetailsById(vm.userId)
                 .then(function (data) {
-                    vm.user = data;
+                    vm.user = data.data;
                 }, function (err) {
                     vm.error = err.message;
                 })

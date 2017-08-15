@@ -15,10 +15,10 @@
 
         //===============Pending Jobs ====================
         vm.getPendingJobs = function () {
-            createdJobsService.getPendingJobs(14, 2, 5, "DateStart", false).then(
+            createdJobsService.getPendingJobs(vm.userId, 2, 5, "DateStart", false).then(
                 function (response) {
                     console.log(response);
-                    vm.pendingJobs = response.data;
+                    vm.pendingJobs = response.data.data;
                 },
                 function (error) {
                     console.log("error getting pending jobs")
@@ -47,7 +47,7 @@
             createdJobsService.getApprovedJobs(vm.userId).then(
                 function (response) {
                     console.log(response);
-                    vm.approvedJobs = response;
+                    vm.approvedJobs = response.data;
                 }, function (error) {
                     console.log("error getting pending jobs")
                 })

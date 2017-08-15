@@ -16,7 +16,7 @@
         vm.id = localStorage.getItem('ls.userId');
 
         appliedJobsService.getAppliedJobs(vm.id).then(function (response) {
-            vm.appliedJobs = response;
+            vm.appliedJobs = response.data;
             console.log(vm.appliedJobs);
         }, function (error) {
             console.log("Couldn't get the jobs");

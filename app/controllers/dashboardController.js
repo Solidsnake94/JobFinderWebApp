@@ -5,13 +5,14 @@
         .module('jobFinderApp')
         .controller('dashboardController', dashboardController);
 
-    dashboardController.inject = ['$scope','$state', 'authenticationService'];
+    dashboardController.inject = ['$scope', '$state', 'authenticationService', 'localStorageService'];
 
-    function dashboardController($scope,$state, authenticationService) {
+    function dashboardController($scope, $state, authenticationService, localStorageService) {
         var vm = this;
 
-        $scope.user = localStorage.getItem('ls.jobFinder-username');
-        
+
+        $scope.user = localStorage.getItem('ls.jobFinder-username').replace(/^"(.*)"$/, '$1');
+      
         // VARIABLES =======================
 
         vm.logout = function () {

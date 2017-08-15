@@ -10,17 +10,9 @@
     function appliedJobsService($http, authenticationService) {
 
         function getAppliedJobs(applicantId) {
-            return new Promise(function (resolve, reject) {
-
-                $http.get(authenticationService.apiBaseUrl + '/api/jobs/application/applicant?applicantId=' + applicantId)
-                    .then(function (response) {
-                        resolve(response.data);
-                    },
-                    function (response) {
-                        console.log('Error: ' + response);
-                    });
-
-            });
+           
+              return $http.get(authenticationService.apiBaseUrl + '/api/jobs/application/applicant?applicantId=' + applicantId)
+             
         }
         var goToDetailsAppliedjobs = function (id) {
             return new Promise(function (resolve, reject) {
