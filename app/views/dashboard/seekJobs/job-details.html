@@ -36,10 +36,11 @@
                     {{ vm.job.description}}
                 </div>
             </div>
-            <div class="row">
+             <div class="row">
                 <div class="col-sm-12">
                     <h3> Location: </h3>
                 </div>
+                <div id="mapWithCoords"></div>
             </div>
             <div class="row">
                 <button type="button" class="btn btn-success pull-right" ng-if="vm.job.createdBy != vm.jobApplication.applicantId" ng-click="vm.applyForJob(vm.jobApplication)"> APPLY</button>

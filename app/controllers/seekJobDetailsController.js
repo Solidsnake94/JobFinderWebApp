@@ -23,28 +23,7 @@
 
         console.log(vm.job);
 
-        vm.initCoords = function () {
-
-            console.log('Searching location!');
-            $scope.apiError = false;
-            googleMapsService.initWithCoords($scope.searchPlace)
-                .then(
-                function (res) { // success
-                    googleMapsService.addMarker(res);
-                    $scope.place.name = res.name;
-                    $scope.job.latitude = res.geometry.location.lat();
-                    $scope.job.longitude = res.geometry.location.lng();
-
-                    console.log('Place:' + $scope.place.name + ' Lat: ' + $scope.job.latitude + ' Lng: ' + $scope.job.longitude);
-                },
-                function (status) { // error
-                    $scope.apiError = true;
-                    $scope.apiStatus = status;
-
-                    console.log('GoogleMaps error: ' + $scope.apiStatus);
-
-                });
-        }
+        googleMapsService.initWithCoords(vm.job.latitude, vm.job.longitude);
 
         //============Apply for Job ==============
 

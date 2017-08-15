@@ -1,6 +1,7 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
- #map { 
+ 
+ #map, #mapWithCoords { 
     height: 400px;
     margin: 20px 0;
     border-radius: 5px;

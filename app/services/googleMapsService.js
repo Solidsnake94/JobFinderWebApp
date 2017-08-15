@@ -22,17 +22,19 @@
         }
 
         // initWithCoords() used when displaying applied jobs details
-        this.initWithCoords = function(latitude, longtitude){
-             var options = {
+        this.initWithCoords = function (latitude, longtitude) {
+            var options = {
                 center: new google.maps.LatLng(latitude, longtitude),
                 zoom: 13,
                 disableDefaultUI: true
             }
             //not sure if this shouldnt be another id
-            this.map = new google.maps.Map(
-                document.getElementById("map"), options
+            this.mapWithCoords = new google.maps.Map(
+                document.getElementById("mapWithCoords"), options
             );
-            this.places = new google.maps.places.PlacesService(this.map);
+            this.placesWithCoords = new google.maps.places.PlacesService(this.mapWithCoords);
+
+            console.log("finished initWithCoords");
         }
 
         this.search = function (str) {
@@ -46,15 +48,15 @@
             return d.promise;
         }
 
-         this.addMarker = function(res) {
-        if(this.marker) this.marker.setMap(null);
-        this.marker = new google.maps.Marker({
-            map: this.map,
-            position: res.geometry.location,
-            animation: google.maps.Animation.DROP
-        });
-        this.map.setCenter(res.geometry.location);
-    }
+        this.addMarker = function (res) {
+            if (this.marker) this.marker.setMap(null);
+            this.marker = new google.maps.Marker({
+                map: this.map,
+                position: res.geometry.location,
+                animation: google.maps.Animation.DROP
+            });
+            this.map.setCenter(res.geometry.location);
+        }
 
 
     }
